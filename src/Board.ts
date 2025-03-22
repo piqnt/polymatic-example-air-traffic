@@ -21,6 +21,7 @@ export class Board extends Middleware<MainContext> {
     this.on("activate", this.handleActivate);
     this.on("terminal-tick", this.handleTick);
     this.on("user-click-plane", this.handleClickPlane);
+    this.on("user-click", this.handleClick);
   }
 
   handleActivate = () => {
@@ -47,6 +48,10 @@ export class Board extends Middleware<MainContext> {
         this.items.splice(i, 1);
       }
     }
+  };
+
+  handleClick = () => {
+    this.context.items?.find(item => item.type === "plane")?.action?.click?.();
   };
 
   handleClickPlane = (plane: Plane) => {

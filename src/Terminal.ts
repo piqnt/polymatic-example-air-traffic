@@ -18,7 +18,7 @@ export class Terminal extends Middleware<MainContext> {
 
   handleStageReady = () => {
     this.context.stage.background("#222222");
-    this.context.stage.viewbox(1024, 1024, "out-crop").pin("align", -0.5);
+    this.context.stage.viewbox(800, 800, "out-crop").pin("align", -0.5);
     this.context.stage.MAX_ELAPSE = 20;
 
     const bg = Stage.sprite("bg");
